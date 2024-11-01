@@ -5,21 +5,25 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import os
 
-# Accessing secrets
-db_user = st.secrets["mysql"]["DB_USER"]
-db_password = st.secrets["mysql"]["DB_PASSWORD"]
-db_host = st.secrets["mysql"]["DB_HOST"]
-db_port = st.secrets["mysql"]["DB_PORT"]
-db_name = st.secrets["mysql"]["DB_NAME"]
-
-# Create the database connection string
-connection_string = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
-
-# Function to get data from MySQL
+# MySQL database connection function
 def get_data_from_mysql(query):
+    # Retrieve environment variables
+    db_user = os.environ.get('DB_USER')
+    db_password = os.environ.get('DB_PASSWORD')
+    db_host = os.environ.get('DB_HOST', 'localhost')  # Default to localhost if not set
+    db_port = os.environ.get('DB_PORT', '3306')       # Default to 3306 if not set
+    db_name = os.environ.get('DB_NAME')
+
+    # Create the database connection string
+    connection_string = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+
+    # Create the SQLAlchemy engine
     engine = create_engine(connection_string)
+    
+    # Connect and fetch data
     with engine.connect() as connection:
         data = pd.read_sql(query, connection)
+    
     return data
 
 # Fetch data from MySQL
