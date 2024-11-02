@@ -3,6 +3,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 import plotly.express as px
+import mysql.connector
 import os
 
 # MySQL database connection function
