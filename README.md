@@ -1,61 +1,108 @@
-# Coronavirus Analysis Project
+# Coronavirus Analysis Dashboard
 
-## Overview
-This project demonstrates a comprehensive analysis of the Coronavirus (COVID-19) pandemic data using SQL. The goal is to derive meaningful insights into the spread and impact of the virus based on the dataset provided.
+**A data analysis dashboard for visualizing the impact of COVID-19 worldwide using Streamlit and MySQL.** This project presents real-time insights into confirmed cases, deaths, and recoveries, allowing users to filter data by country and date to explore COVID-19 metrics dynamically.
 
-## Dataset Description
-The dataset includes the following columns:
-- **Province**: Geographic subdivision within a country/region.
-- **Country/Region**: Geographic entity where data is recorded.
-- **Latitude**: North-south position on Earth's surface.
-- **Longitude**: East-west position on Earth's surface.
-- **Date**: Recorded date of Coronavirus data.
-- **Confirmed**: Number of diagnosed Coronavirus cases.
-- **Deaths**: Number of Coronavirus-related deaths.
-- **Recovered**: Number of recovered Coronavirus cases.
 
-## Project Objectives
-The primary objective of this project is to perform detailed analysis on the Coronavirus dataset to answer the following questions:
-1. Total number of confirmed cases globally.
-2. Total number of deaths globally.
-3. Total number of recoveries globally.
-4. Number of confirmed cases by country.
-5. Number of deaths by country.
-6. Number of recoveries by country.
-7. Number of confirmed cases over time.
-8. Number of deaths over time.
-9. Number of recoveries over time.
-10. Number of confirmed cases by province.
-11. Number of deaths by province.
-12. Number of recoveries by province.
-13. Country with the highest number of confirmed cases.
-14. Country with the highest number of deaths.
-15. Country with the highest number of recoveries.
-16. Impact of latitude and longitude on the spread of the virus.
+## Project Overview
+The **Coronavirus Analysis Dashboard** is a web-based application built using Python, Streamlit, MySQL, and visualization libraries like Matplotlib and Plotly. It fetches COVID-19 data from a MySQL database, allowing users to explore the data interactively through visualizations and filtering options.
 
-## Getting Started
+This project was developed to enhance analytical skills and create a user-friendly interface for visualizing and understanding pandemic trends over time.
+
+## Features
+- **Data Filtering**: Filter COVID-19 data by country/region and date range.
+- **Key Metrics Display**: Showcases total confirmed cases, deaths, and recoveries.
+- **Visualizations**:
+  - **Pie Chart**: Visualizes death distribution across countries.
+  - **Bar Graph**: Displays confirmed cases by province.
+- **Data Table**: Shows the filtered dataset in a tabular format.
+- **Customizable Layout**: Includes custom CSS styling for improved appearance.
+
+## Technologies Used
+- **Python**
+- **Streamlit**: For building the interactive dashboard.
+- **MySQL**: For storing and retrieving COVID-19 data.
+- **SQLAlchemy**: For connecting to MySQL through SQL queries.
+- **Matplotlib & Plotly**: For data visualization.
+
+## Setup Instructions
 
 ### Prerequisites
-- **SQL**: Basic to intermediate knowledge of SQL.
-- **Database Management System**: Any SQL-based DBMS (e.g., MySQL, PostgreSQL, SQLite).
+1. **Python 3.7+**: Make sure Python is installed.
+2. **MySQL Database**: Install MySQL and set up a database called `coronavirusanalysis`.
 
 ### Installation
- **Set Up the Database**
-   - Load the dataset into your SQL database.
-   - Ensure the database schema matches the dataset structure.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/NishaKathiriya/coronavirus-analysis
+   cd coronavirus-analysis
+   ```
 
-## Results and Insights
-The analysis provided several key insights into the spread and impact of the Coronavirus. Here are some highlights:
-- **Global Impact**: The total number of confirmed cases, deaths, and recoveries globally.
-- **Country-wise Analysis**: Identified countries with the highest number of cases, deaths, and recoveries.
-- **Temporal Trends**: Observed trends over time for confirmed cases, deaths, and recoveries.
-- **Geographic Insights**: Impact of geographic factors (latitude and longitude) on the spread of the virus.
+2. **Create a virtual environment** (optional but recommended):
+   ```bash
+   python -m venv myvenv
+   source myvenv/bin/activate  # On Windows use: myvenv\Scripts\activate
+   ```
 
-## Visualizations
-Visualizations can be added to enhance the presentation of results. Tools like Matplotlib, Seaborn, or Tableau can be used for this purpose.
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Contributing
-Contributions are welcome! If you have suggestions for improvements or additional analysis, feel free to fork the repository and submit a pull request.
+4. **Set up MySQL Database**:
+   - Create a database named `coronavirusanalysis`.
+   - Import COVID-19 data into a table named `corona_data` within this database.
+   - Make sure MySQL service is running and accessible.
 
-## Acknowledgements
-- Special thanks to the data providers and public health organizations for making the data available.
+5. **Environment Variables (Optional)**:
+   If you prefer, set up a `.env` file to store sensitive MySQL credentials:
+   ```plaintext
+   MYSQL_HOST=localhost
+   MYSQL_USER=root
+   MYSQL_PASSWORD=yourpassword
+   MYSQL_DB=coronavirusanalysis
+   MYSQL_PORT=3306
+   ```
+
+### Configuration
+In `dashboard.py`, modify the database connection function with your MySQL credentials if not using `.env`:
+
+```python
+db_connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="yourpassword",
+    database="coronavirusanalysis",
+    port=3306
+)
+```
+
+## Usage
+1. **Run the application**:
+   ```bash
+   streamlit run dashboard.py
+   ```
+
+### Interacting with the Dashboard
+- **Filter Data**: Use the sidebar to filter by `Country/Region` and date range.
+- **Metrics and Visualizations**: View dynamic charts and metrics.
+- **Data Table**: Expand the "Show Data Table" option to explore the raw data.
+
+
+![image](https://github.com/user-attachments/assets/902d0ac6-336e-4e4d-a920-96cf7df52fdb)
+
+
+![image](https://github.com/user-attachments/assets/f3eba256-5d80-4626-a9fb-96a08d5c497f)
+
+
+![image](https://github.com/user-attachments/assets/a33f9222-51e0-4dc6-9504-76873d13c243)
+
+
+![image](https://github.com/user-attachments/assets/dae78a83-88bb-4518-8bae-a7d09e51054e)
+
+
+![image](https://github.com/user-attachments/assets/ec2163c7-2d93-4045-8015-8ea793af9ea6)
+
+
+
+
+
