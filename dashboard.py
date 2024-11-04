@@ -10,7 +10,7 @@ def get_data_from_mysql(query):
     
     # Database credentials
     db_user = "nkathiriya"              
-    db_password = "Nisha@1502"  
+    db_password = "nkathiriya@2350"  
     db_host = "nkathiriya.mysql.pythonanywhere-services.com"  
     db_port = 3306                       
     db_name = "nkathiriya$coronavirusanalysis"  
