@@ -7,16 +7,16 @@ import mysql.connector
 import os
 # MySQL database connection function
 def get_data_from_mysql(query):
-    # Retrieve secrets from Streamlit
-    db_user = st.secrets["mysql"]["DB_USER"]
-    db_password = st.secrets["mysql"]["DB_PASSWORD"]
-    db_host = st.secrets["mysql"]["DB_HOST"]
-    db_port = st.secrets["mysql"]["DB_PORT"]
-    db_name = st.secrets["mysql"]["DB_NAME"]
+    
+    # Database credentials
+    db_user = "nkathiriya"              
+    db_password = "Nisha@1502"  
+    db_host = "nkathiriya.mysql.pythonanywhere-services.com"  
+    db_port = 3306                       
+    db_name = "nkathiriya$coronavirusanalysis"  
 
-    # Create the database connection string
+    # Connection string
     connection_string = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
-
     # Create the SQLAlchemy engine
     engine = create_engine(connection_string)
     
